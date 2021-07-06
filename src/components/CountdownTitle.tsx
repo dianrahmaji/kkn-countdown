@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const TitleWrapper = styled.div`
   height: 35%;
@@ -10,7 +10,7 @@ const TitleWrapper = styled.div`
     margin: 0;
     text-align: center;
     &.side-heading {
-      font-family: 'Roboto Mono', monospace;
+      font-family: "Roboto Mono", monospace;
       text-transform: uppercase;
       font-size: 1.2em;
       @media only screen and (min-width: 720px) {
@@ -24,7 +24,7 @@ const TitleWrapper = styled.div`
       }
     }
     &.main-heading {
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       color: #00a8cc;
       font-size: 2em;
       @media only screen and (min-width: 720px) {
@@ -36,7 +36,6 @@ const TitleWrapper = styled.div`
       @media only screen and (min-width: 1300px) {
         font-size: 2.9em;
       }
-
     }
   }
 `;
@@ -49,6 +48,6 @@ const CountdownTitle: React.FC = () => {
       <h1 className="side-heading">Periode 2 Tahun 2021</h1>
     </TitleWrapper>
   );
-}
+};
 
 export default CountdownTitle;
