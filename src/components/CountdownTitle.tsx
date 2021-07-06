@@ -41,7 +41,7 @@ const TitleWrapper = styled.div`
   }
 `;
 
-const CountdownTitle = () => {
+const CountdownTitle: React.FC = () => {
   return (
     <TitleWrapper>
       <h1 className="side-heading">Countdown Penarikan</h1>

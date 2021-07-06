@@ -10,7 +10,7 @@ const CountdownWrapper = styled.div`
   width: 100vw;
 `;
 
-const CountdownComponent = () => {
+const CountdownComponent: React.FC = () => {
   return (
     <CountdownWrapper>
       <CountdownTitle />

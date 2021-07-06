@@ -25,7 +25,7 @@ const StyledFooter = styled.footer`
   }
 `;
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <IconContext.Provider value={{ style: { verticalAlign: '', margin: '0 6px' } }}>
       <StyledFooter>
