@@ -48,7 +48,7 @@ const CountdownTimeItem: React.FC<CountdownTimeItemProps> = ({
   return (
     <TimeItemWrapper>
       <p className="time-value">{value > 9 ? value : `0${value}`}</p>
-      <p className="time-unit">{unit}</p>
+      <p className="time-unit">{value === 1 ? unit : `${unit}s`}</p>
     </TimeItemWrapper>
   );
 };

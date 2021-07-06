@@ -26,13 +26,13 @@ const CountdownTimeWrapper: React.FC<CountdownTimeWrapperProps> = ({
 
   return (
     <TimeWrapper>
-      <CountdownTimeItem value={timeDays} unit="days" />
+      <CountdownTimeItem value={timeDays} unit="day" />
       <CountdownTimeSeparator separator="&nbsp;" />
-      <CountdownTimeItem value={timeHours} unit="hours" />
+      <CountdownTimeItem value={timeHours} unit="hour" />
       <CountdownTimeSeparator />
-      <CountdownTimeItem value={timeMinutes} unit="minutes" />
+      <CountdownTimeItem value={timeMinutes} unit="minute" />
       <CountdownTimeSeparator />
-      <CountdownTimeItem value={timeSeconds} unit="seconds" />
+      <CountdownTimeItem value={timeSeconds} unit="second" />
     </TimeWrapper>
   );
 };
