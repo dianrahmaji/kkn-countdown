@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { TimeStateType } from "../types/types";
+import { TimeStateType, TimeUnitType } from "../types/types";
 
 const TimeItemWrapper = styled.div`
   p {
@@ -36,9 +36,10 @@ const TimeItemWrapper = styled.div`
     }
   }
 `;
+
 type CountdownTimeItemProps = {
   value: TimeStateType;
-  unit: String;
+  unit: TimeUnitType;
 };
 
 const CountdownTimeItem: React.FC<CountdownTimeItemProps> = ({
