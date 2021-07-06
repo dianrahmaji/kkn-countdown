@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { TimeStateType } from '../types/types';
+
 const TimeItemWrapper = styled.div`
   p {
     text-transform: uppercase;
@@ -34,8 +36,12 @@ const TimeItemWrapper = styled.div`
     }
   }
 `
+type CountdownTimeItemProps = {
+  value: TimeStateType
+  unit: String
+}
 
-const CountdownTimeItem = ({ value, unit }) => {
+const CountdownTimeItem: React.FC<CountdownTimeItemProps> = ({ value, unit }) => {
   return (
     <TimeItemWrapper>
       <p className="time-value">{value > 9 ? value : `0${value}`}</p>

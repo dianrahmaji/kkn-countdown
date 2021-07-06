@@ -1,5 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
+
+import { TimeStateType } from '../types/types';
+
 import CountdownTimeItem from './CountdownTimeItem';
 import CountdownTimeSeparator from './CountdownTimeSeparator';
 
@@ -11,14 +14,16 @@ const TimeWrapper = styled.div`
   padding-top: 50px;
 `
 
-const CountdownTimeWrapper = () => {
+type TimeState = TimeStateType
 
-  const [timeDays, setTimerDays] = useState('0');
-  const [timeHours, setTimerHours] = useState('0'); 
-  const [timeMinutes, setTimerMinutes] = useState('0'); 
-  const [timeSeconds, setTimerSeconds] = useState('0');
+const CountdownTimeWrapper: React.FC = () => {
 
-  let interval = useRef();
+  const [timeDays, setTimerDays] = useState<TimeState>('0');
+  const [timeHours, setTimerHours] = useState<TimeState>('0'); 
+  const [timeMinutes, setTimerMinutes] = useState<TimeState>('0'); 
+  const [timeSeconds, setTimerSeconds] = useState<TimeState>('0');
+
+  let interval: NodeJS.Timer;
 
   const startTimer = () => {
     const countdownDate = new Date('August 24 2021 00:00:00').getTime();

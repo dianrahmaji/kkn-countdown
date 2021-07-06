@@ -7,7 +7,7 @@ const MainWrapper = styled.div`
   margin: 0 auto;
 `
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <MainWrapper>
       <CountdownPage />

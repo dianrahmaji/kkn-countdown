@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { SeparatorType } from '../types/types'
+
 const Separator = styled.p`
   font-family: 'Roboto Mono', monospace;
   margin: 0;
@@ -16,7 +18,11 @@ const Separator = styled.p`
   }
 `;
 
-const CountdownTimeSeparator = ({ separator = ":" }) => {
+type CountdownTimeSeparatorProps = {
+  separator?: SeparatorType
+}
+
+const CountdownTimeSeparator: React.FC<CountdownTimeSeparatorProps> = ({ separator = ":" }) => {
   return (
   <Separator>{separator}</Separator>
   );
