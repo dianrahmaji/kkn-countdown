@@ -42,7 +42,7 @@ const Document = () => {
         <meta property="og:type" content="website" />
         <meta property="og:updated_time" content="1440432930" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        {/* <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> */}
 
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@700&display=swap"
