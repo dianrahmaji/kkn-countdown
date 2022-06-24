@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react'
+import styled from 'styled-components'
 
-import { TimeStateType, TimeUnitType } from "../types/types";
+import { TimeStateType, TimeUnitType } from '../types/types'
 
 const TimeItemWrapper = styled.div`
   p {
@@ -9,7 +9,7 @@ const TimeItemWrapper = styled.div`
     text-align: center;
     margin: 0;
     &.time-value {
-      font-family: "Roboto Mono", monospace;
+      font-family: 'Roboto Mono', monospace;
       font-size: 2.7em;
       @media only screen and (min-width: 720px) {
         font-size: 3.2em;
@@ -22,7 +22,7 @@ const TimeItemWrapper = styled.div`
       }
     }
     &.time-unit {
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 0.5em;
       @media only screen and (min-width: 720px) {
         font-size: 0.7em;
@@ -35,23 +35,23 @@ const TimeItemWrapper = styled.div`
       }
     }
   }
-`;
+`
 
 type CountdownTimeItemProps = {
-  value: TimeStateType;
-  unit: TimeUnitType;
-};
+  value: TimeStateType
+  unit: TimeUnitType
+}
 
 const CountdownTimeItem: React.FC<CountdownTimeItemProps> = ({
   value,
-  unit,
+  unit
 }) => {
   return (
     <TimeItemWrapper>
-      <p className="time-value">{value > 9 ? value : `0${value}`}</p>
+      <p className="time-value">{value > 9 ? `${value}` : `0${value}`}</p>
       <p className="time-unit">{value === 1 ? unit : `${unit}s`}</p>
     </TimeItemWrapper>
-  );
-};
+  )
+}
 
-export default CountdownTimeItem;
+export default CountdownTimeItem
