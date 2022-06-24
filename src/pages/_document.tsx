@@ -5,7 +5,6 @@ const Document = () => {
     <Html lang="id">
       <Head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta
           name="description"
@@ -48,7 +47,6 @@ const Document = () => {
           href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@700&display=swap"
           rel="stylesheet"
         />
-        <title>Kapan KKN Selesai?</title>
       </Head>
       <body>
         <Main />
