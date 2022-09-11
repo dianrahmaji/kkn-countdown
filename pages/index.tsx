@@ -1,4 +1,7 @@
+import useCountdown from "../hooks/useCountdown";
+
 import type { NextPage } from "next";
+import type { CountdownUnitType } from "../types/countdown";
 
 function Title() {
   return (
@@ -7,6 +10,7 @@ function Title() {
       <p className="text-[#00a8cc] text-3xl lg:text-4xl font-sans">
         KKN-PPM UGM
       </p>
+      {/* TODO:: Fetch data from API */}
       <p className="text-2xl lg:text-3xl font-mono">Periode 2 Tahun 2021</p>
     </div>
   );
@@ -14,7 +18,7 @@ function Title() {
 
 interface CountdownItemProps {
   value: number;
-  unit: "day" | "hour" | "minute" | "second";
+  unit: CountdownUnitType;
 }
 
 function CountdownItem({ value, unit }: CountdownItemProps) {
@@ -38,12 +42,16 @@ function CountdownItem({ value, unit }: CountdownItemProps) {
 }
 
 function Countdown() {
+  // TODO:: Fetch data from API
+  const endAt = new Date("December 25 2022 00:00:00").getTime();
+  const { day, hour, minute, second } = useCountdown(endAt);
+
   return (
     <div className="mt-6 flex justify-center items-start gap-1">
-      <CountdownItem value={0} unit="day" />
-      <CountdownItem value={0} unit="hour" />
-      <CountdownItem value={0} unit="minute" />
-      <CountdownItem value={0} unit="second" />
+      <CountdownItem value={day} unit="day" />
+      <CountdownItem value={hour} unit="hour" />
+      <CountdownItem value={minute} unit="minute" />
+      <CountdownItem value={second} unit="second" />
     </div>
   );
 }
