@@ -9,7 +9,7 @@ export default function Header() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="w-full absolute flex items-center justify-end px-4 sm:px-6 md:px-8 pt-6 lg:pt-8">
+    <div className="w-full min-w-[500px] absolute flex items-center justify-end px-4 sm:px-6 md:px-8 pt-6 lg:pt-8">
       <button
         aria-label="Toggle Dark Mode"
         type="button"
