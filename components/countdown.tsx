@@ -27,10 +27,13 @@ function CountdownItem({ value, unit }: CountdownItemProps) {
   );
 }
 
-export default function Countdown() {
-  // TODO:: Fetch data from API
-  const endAt = new Date("December 25 2022 00:00:00").getTime();
-  const { day, hour, minute, second } = useCountdown(endAt);
+interface CountdownProps {
+  endAt: string;
+}
+
+export default function Countdown({ endAt }: CountdownProps) {
+  const endAtTimestamp = new Date(endAt).getTime();
+  const { day, hour, minute, second } = useCountdown(endAtTimestamp);
 
   return (
     <div className="mt-6 flex justify-center items-start gap-1">

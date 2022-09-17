@@ -19,7 +19,7 @@ async function seed() {
   const countdowns = await Promise.all(
     Array.from({ length: 10 }, async (_, yearIndex) => {
       Array.from({ length: 4 }, async (_, periodIndex) => {
-        const year = yearIndex + 2010;
+        const year = yearIndex + 2020;
         const period = periodIndex + 1;
 
         const startAt = new Date(`${year}-${3 * (period - 1) + 1}-1`);
