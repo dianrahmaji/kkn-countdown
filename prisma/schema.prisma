@@ -3,6 +3,7 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
+  output          = "generated"
 }
 
 datasource db {
@@ -20,20 +21,26 @@ model Admin {
 model Password {
   hash String
 
-  admin    Admin  @relation(fields: [admin_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  admin_id String @unique
+  admin   Admin  @relation(fields: [adminId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  adminId String @unique
 }
 
 model GuestBook {
-  id         String   @id @default(cuid())
-  body       String   @db.VarChar(500)
-  send_by    String?  @db.VarChar(32)
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  id        String   @id @default(cuid())
+  body      String   @db.VarChar(288)
+  author    String?  @db.VarChar(32)
+  placement String   @db.VarChar(32)
+  createdAt DateTime @default(now())
 }
 
 model Reaction {
-  id         String   @id @default(cuid())
-  reaction   String
-  created_at DateTime @default(now())
+  id        String   @id @default(cuid())
+  reaction  String
+  createdAt DateTime @default(now())
+}
+
+model Countdown {
+  id     String @id @default(cuid())
+  period Int
+  year   Int
 }
