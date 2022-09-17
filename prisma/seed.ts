@@ -59,8 +59,6 @@ async function seed() {
       return reaction;
     })
   );
-
-  console.log(`Database has been seeded. 🌱`);
 }
 
 seed()
