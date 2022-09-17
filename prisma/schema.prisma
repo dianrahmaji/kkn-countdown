@@ -3,7 +3,6 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
-  output          = "generated"
 }
 
 datasource db {

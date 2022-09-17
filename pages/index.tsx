@@ -1,6 +1,5 @@
+import { PrismaClient } from "@prisma/client";
 import type { NextPage, GetStaticPropsResult, GetStaticProps } from "next";
-
-import { PrismaClient } from "../prisma/generated";
 
 import Title from "../components/title";
 import Countdown from "../components/countdown";
