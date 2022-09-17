@@ -19,8 +19,19 @@ async function seed() {
   const countdowns = await Promise.all(
     Array.from({ length: 10 }, async (_, yearIndex) => {
       Array.from({ length: 4 }, async (_, periodIndex) => {
+        const year = yearIndex + 2010;
+        const period = periodIndex + 1;
+
+        const startAt = new Date(`${year}-${3 * (period - 1) + 1}-1`);
+        const endAt = new Date(`${year}-${3 * period}-25`);
+
         const countdown = await prisma.countdown.create({
-          data: { period: periodIndex + 1, year: yearIndex + 2020 },
+          data: {
+            year,
+            period,
+            startAt,
+            endAt,
+          },
         });
 
         return countdown;
@@ -46,19 +57,19 @@ async function seed() {
     })
   );
 
-  const reactions = await Promise.all(
-    Array.from({ length: 100 }, async () => {
-      const reaction = await prisma.reaction.create({
-        data: {
-          reaction: faker.internet.emoji({
-            types: ["smiley", "food", "nature", "travel", "activity"],
-          }),
-        },
-      });
+  // const reactions = await Promise.all(
+  //   Array.from({ length: 100 }, async () => {
+  //     const reaction = await prisma.reaction.create({
+  //       data: {
+  //         reaction: faker.internet.emoji({
+  //           types: ["smiley", "food", "nature", "travel", "activity"],
+  //         }),
+  //       },
+  //     });
 
-      return reaction;
-    })
-  );
+  //     return reaction;
+  //   })
+  // );
 }
 
 seed()

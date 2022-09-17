@@ -40,7 +40,9 @@ model Reaction {
 }
 
 model Countdown {
-  id     String @id @default(cuid())
-  period Int
-  year   Int
+  id      String   @id @default(cuid())
+  period  Int
+  year    Int
+  startAt DateTime
+  endAt   DateTime
 }
