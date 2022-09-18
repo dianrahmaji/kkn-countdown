@@ -28,7 +28,7 @@ model GuestBook {
   id        String   @id @default(cuid())
   body      String   @db.VarChar(288)
   author    String?  @db.VarChar(32)
-  placement String   @db.VarChar(32)
+  placement String?  @db.VarChar(32)
   createdAt DateTime @default(now())
 }
 
