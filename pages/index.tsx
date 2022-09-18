@@ -19,7 +19,7 @@ interface Props {
 const Home: NextPage<Props> = ({ countdown }) => {
   const { period, year, endAt } = countdown;
   return (
-    <div className="h-screen max-w-7xl mx-auto justify-center flex flex-col min-w-[500px]">
+    <div className="h-screen max-w-2xl mx-auto justify-center flex flex-col min-w-[500px]">
       <Title period={period} year={year} />
       <Countdown endAt={endAt} />
     </div>
