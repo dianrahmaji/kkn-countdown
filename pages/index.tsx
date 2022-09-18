@@ -54,8 +54,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         startAt: countdown.startAt.toISOString(),
         endAt: countdown.endAt.toISOString(),
       },
-      validate: 60 * 60 * 24,
     },
+    revalidate: 60 * 60 * 24,
   };
 };
 
