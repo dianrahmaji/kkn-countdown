@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { PrismaClient } from "@prisma/client";
+
 import type { NextPage, GetStaticProps } from "next";
 
 import Title from "../components/title";
@@ -22,6 +24,11 @@ const Home: NextPage<Props> = ({ countdown }) => {
     <div className="h-screen max-w-2xl mx-auto justify-center flex flex-col min-w-[500px]">
       <Title period={period} year={year} />
       <Countdown endAt={endAt} />
+      <div className="mt-10 text-center font-extralight text-sm font-mono hover:underline active:text-[#00a8cc]">
+        <Link className="mt-10" href="/guestbook">
+          Lihat atau Isi Guestbook
+        </Link>
+      </div>
     </div>
   );
 };
