@@ -78,7 +78,14 @@ const GuestBook: NextPage<Props> = ({ guestbooks }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  res,
+}) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=60, stale-while-revalidate=3600"
+  );
+
   const prisma = new PrismaClient();
   const guestbooks = await prisma.guestBook.findMany({
     orderBy: [
