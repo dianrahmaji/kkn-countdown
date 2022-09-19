@@ -65,7 +65,7 @@ const GuestBookEntry = ({
 
 const GuestBook: NextPage<Props> = ({ guestbooks }) => {
   return (
-    <div className="max-w-2xl px-8 mx-auto justify-center flex flex-col">
+    <div className="max-w-2xl min-w-[500px] px-8 mx-auto justify-center flex flex-col">
       <div className="my-14">
         <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-10 text-black dark:text-white">
           Guestbook
@@ -78,7 +78,14 @@ const GuestBook: NextPage<Props> = ({ guestbooks }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  res,
+}) => {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=60, stale-while-revalidate=3600"
+  );
+
   const prisma = new PrismaClient();
   const guestbooks = await prisma.guestBook.findMany({
     orderBy: [
