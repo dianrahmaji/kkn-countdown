@@ -29,7 +29,7 @@ function Input({ label, required, ...props }: InputProps) {
       </label>
       <div className="mt-1">
         <input
-          className="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm"
+          className="block w-full appearance-none rounded-sm px-3 py-2 focus:outline-none placeholder-gray-400 shadow-sm border-gray-900 bg-cyan-600/10 dark:bg-gray-700/20"
           {...field}
           {...props}
         />
@@ -52,7 +52,7 @@ function TextArea({ label, required, ...props }: TextAreaProps) {
       </label>
       <div className="mt-1">
         <textarea
-          className="block w-full appearance-none rounded-md border px-3 py-2 placeholder-gray-400 shadow-sm"
+          className="block w-full appearance-none rounded-sm px-3 py-2 focus:outline-none placeholder-gray-400 shadow-sm border-gray-900 bg-cyan-600/10 dark:bg-gray-700/20"
           {...field}
           {...props}
         />
@@ -93,7 +93,7 @@ export default function GuestBookForm() {
 
   return (
     <Formik {...{ initialValues, validationSchema, onSubmit }}>
-      <Form>
+      <Form className="bg-cyan-700/10 dark:bg-gray-700/10 rounded p-5">
         <Input id="author" name="author" label="Nama" />
         <Input id="placement" name="placement" label="Penempatan" />
         <TextArea
@@ -107,7 +107,7 @@ export default function GuestBookForm() {
         <div className="flex flex-row justify-end mt-3">
           <button
             type="submit"
-            className="px-4 py-2 rounded text-sm md:text-base bg-slate-600"
+            className="px-4 py-2 rounded text-sm text-white font-bold md:text-base bg-cyan-600 hover:bg-cyan-700 dark:bg-gray-600 dark:hover:bg-gray-700"
           >
             Kirim
           </button>
