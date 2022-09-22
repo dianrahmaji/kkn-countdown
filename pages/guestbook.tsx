@@ -1,5 +1,8 @@
 import { PrismaClient } from "@prisma/client";
+
 import type { NextPage, GetStaticProps } from "next";
+
+import GuestBookForm from "../components/guestbook-form";
 
 interface GuestBook {
   id: string;
@@ -67,9 +70,10 @@ const GuestBook: NextPage<Props> = ({ guestbooks }) => {
   return (
     <div className="max-w-2xl min-w-[500px] px-8 mx-auto justify-center flex flex-col">
       <div className="my-14">
-        <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-10 text-black dark:text-white">
+        <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-5 text-black dark:text-white">
           Guestbook
         </h1>
+        <GuestBookForm />
         {guestbooks.map((guestbook) => (
           <GuestBookEntry key={guestbook.id} {...guestbook} />
         ))}
