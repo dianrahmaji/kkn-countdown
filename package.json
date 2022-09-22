@@ -14,10 +14,12 @@
     "@yarnpkg/pnpify": "^4.0.0-rc.18",
     "bcryptjs": "^2.4.3",
     "clsx": "^1.2.1",
+    "formik": "^2.2.9",
     "next": "12.3.0",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",

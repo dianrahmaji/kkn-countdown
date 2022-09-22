@@ -1,5 +1,8 @@
 import { PrismaClient } from "@prisma/client";
-import type { NextPage, GetServerSideProps } from "next";
+
+import type { NextPage, GetStaticProps } from "next";
+
+import GuestBookForm from "../components/guestbook-form";
 
 interface GuestBook {
   id: string;
@@ -67,9 +70,10 @@ const GuestBook: NextPage<Props> = ({ guestbooks }) => {
   return (
     <div className="max-w-2xl min-w-[500px] px-8 mx-auto justify-center flex flex-col">
       <div className="my-14">
-        <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-10 text-black dark:text-white">
+        <h1 className="font-bold text-2xl md:text-4xl tracking-tight mb-5 text-black dark:text-white">
           Guestbook
         </h1>
+        <GuestBookForm />
         {guestbooks.map((guestbook) => (
           <GuestBookEntry key={guestbook.id} {...guestbook} />
         ))}
@@ -78,14 +82,7 @@ const GuestBook: NextPage<Props> = ({ guestbooks }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  res,
-}) => {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=60, stale-while-revalidate=3600"
-  );
-
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const prisma = new PrismaClient();
   const guestbooks = await prisma.guestBook.findMany({
     orderBy: [
@@ -104,6 +101,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
     props: {
       guestbooks: serialized,
     },
+    revalidate: 60,
   };
 };
 
