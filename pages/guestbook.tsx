@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import type { NextPage, GetServerSideProps } from "next";
+import type { NextPage, GetStaticProps } from "next";
 
 interface GuestBook {
   id: string;
@@ -78,14 +78,7 @@ const GuestBook: NextPage<Props> = ({ guestbooks }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  res,
-}) => {
-  res.setHeader(
-    "Cache-Control",
-    "public, s-maxage=60, stale-while-revalidate=3600"
-  );
-
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const prisma = new PrismaClient();
   const guestbooks = await prisma.guestBook.findMany({
     orderBy: [
@@ -104,6 +97,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
     props: {
       guestbooks: serialized,
     },
+    revalidate: 60,
   };
 };
 
