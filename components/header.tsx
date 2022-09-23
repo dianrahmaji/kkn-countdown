@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
+import useHasMounted from '../hooks/useHasMounted'
+
 export default function Header() {
-  const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
-  // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), []);
+  const hasMounted = useHasMounted()
 
   return (
     <div className="w-full min-w-[500px] absolute flex items-center justify-end px-4 sm:px-6 md:px-8 pt-6 lg:pt-8">
@@ -16,7 +15,7 @@ export default function Header() {
         className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all"
         onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       >
-        {mounted && (
+        {hasMounted && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
