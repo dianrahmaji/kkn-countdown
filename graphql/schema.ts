@@ -6,6 +6,9 @@ export const typeDefs = gql`
     body: String
     author: String
     placement: String
-    createdAt: Date
+  }
+
+  type Query {
+    guestbooks: [GuestBook]
   }
 `
