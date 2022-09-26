@@ -4,14 +4,14 @@ import Cors from "micro-cors";
 
 import type { NextConfig } from "next";
 
-import { typeDefs } from "../../graphql/schema";
+import { schema } from "../../graphql/schema";
 import { resolvers } from "../../graphql/resolvers";
 import { createContext } from "../../lib/context";
 
 const cors = Cors();
 
 const apolloServer = new ApolloServer({
-  typeDefs: [DateTimeTypeDefinition, typeDefs],
+  schema,
   resolvers,
   csrfPrevention: true,
   context: createContext,
