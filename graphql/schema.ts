@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server-micro'
+import { gql } from "apollo-server-micro";
 
 export const typeDefs = gql`
   type GuestBook {
@@ -6,9 +6,10 @@ export const typeDefs = gql`
     body: String
     author: String
     placement: String
+    createdAt: DateTime
   }
 
   type Query {
     guestbooks: [GuestBook]
   }
-`
+`;
