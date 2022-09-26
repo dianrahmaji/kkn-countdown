@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@headlessui/react": "^1.7.0",
     "@prisma/client": "4.3.1",
     "@yarnpkg/pnpify": "^4.0.0-rc.18",
