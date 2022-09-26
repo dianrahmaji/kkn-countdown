@@ -1,5 +1,3 @@
-import { DateTimeResolver } from "graphql-scalars";
-
 export const resolvers = {
   Query: {
     // TODO: Add type
