@@ -1,15 +1,7 @@
 export const resolvers = {
   Query: {
-    guestbooks: () => {
-      return [
-        {
-          id: 1,
-          body: "Hello",
-          author: "Dian Rahmaji",
-          placement: "Sukabumi"
-        }
-      ]
-
-    }
-  }
-}
+    guestbooks: (_parent, _args, ctx) => {
+      return ctx.prisma.guestBook.findMany();
+    },
+  },
+};
