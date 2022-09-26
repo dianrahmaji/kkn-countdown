@@ -1,8 +1,9 @@
 import { DateTimeResolver } from "graphql-scalars";
 
 export const resolvers = {
-  DateTime: DateTimeResolver,
   Query: {
+    // TODO: Add type
+    // @ts-ignore
     guestbooks: (_parent, _args, ctx) => {
       return ctx.prisma.guestBook.findMany();
     },
