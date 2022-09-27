@@ -6,7 +6,7 @@ const hostname =
     : "http://localhost:3000";
 
 const apolloClient = new ApolloClient({
-  uri: `http://localhost:3000/api/graphql`,
+  uri: `${hostname}/api/graphql`,
   headers: {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
