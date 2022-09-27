@@ -1,4 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import { gql } from "@apollo/client";
+import apollo from "../lib/apollo";
 
 import type { NextPage, GetStaticProps } from "next";
 
@@ -83,23 +84,33 @@ const GuestBook: NextPage<Props> = ({ guestbooks }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const prisma = new PrismaClient();
-  const guestbooks = await prisma.guestBook.findMany({
-    orderBy: [
-      {
-        createdAt: "desc",
-      },
-    ],
-  });
+  // const { data }: { data: { guestbooks: GuestBook[] } } = await apollo.query({
+  //   query: gql`
+  //     query GuestBooks {
+  //       guestbooks {
+  //         id
+  //         author
+  //         createdAt
+  //         placement
+  //         body
+  //       }
+  //     }
+  //   `,
+  // });
 
-  const serialized = guestbooks.map((guestbook) => ({
-    ...guestbook,
-    createdAt: guestbook.createdAt.toISOString(),
-  }));
+  const guestbooks: GuestBook[] = [
+    {
+      id: "1",
+      author: "Dian Rahmaji",
+      createdAt: new Date().toISOString(),
+      placement: "Sleman",
+      body: "HI",
+    },
+  ];
 
   return {
     props: {
-      guestbooks: serialized,
+      guestbooks,
     },
     revalidate: 60,
   };
