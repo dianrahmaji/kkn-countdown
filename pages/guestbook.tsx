@@ -97,6 +97,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       }
     `,
   });
+
   return {
     props: {
       guestbooks: data.guestbooks,
