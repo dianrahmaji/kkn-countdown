@@ -13,7 +13,6 @@ const cors = Cors();
 const apolloServer = new ApolloServer({
   schema,
   resolvers,
-  csrfPrevention: true,
   context: createContext,
 });
 
