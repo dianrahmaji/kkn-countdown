@@ -84,29 +84,21 @@ const GuestBook: NextPage<Props> = ({ guestbooks }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  // const { data }: { data: { guestbooks: GuestBook[] } } = await apollo.query({
-  //   query: gql`
-  //     query GuestBooks {
-  //       guestbooks {
-  //         id
-  //         author
-  //         createdAt
-  //         placement
-  //         body
-  //       }
-  //     }
-  //   `,
-  // });
-
-  const guestbooks: GuestBook[] = [
-    {
-      id: "1",
-      author: "Dian Rahmaji",
-      createdAt: new Date().toISOString(),
-      placement: "Sleman",
-      body: "HI",
-    },
-  ];
+  const {
+    data: { guestbooks },
+  }: { data: { guestbooks: GuestBook[] } } = await apollo.query({
+    query: gql`
+      query GuestBooks {
+        guestbooks {
+          id
+          author
+          createdAt
+          placement
+          body
+        }
+      }
+    `,
+  });
 
   return {
     props: {
