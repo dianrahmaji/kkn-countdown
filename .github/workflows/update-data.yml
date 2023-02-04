@@ -1,7 +1,7 @@
-name: "Update KKN Period Data"
+name: 'Update KKN Period Data'
 on:
   schedule:
-    - cron: "0 0 * * 0"
+    - cron: '0 0 * * 0'
     workflow_dispatch:
 
 jobs:
