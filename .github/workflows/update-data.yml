@@ -14,6 +14,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install cheerio
+        run: yarn add cheerio
+
       - name: Scrape data
         run: yarn script:scrape
 
