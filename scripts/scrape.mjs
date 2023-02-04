@@ -1,7 +1,6 @@
 import fs from "fs/promises";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import fetch from "node-fetch";
 import cheerio from "cheerio";
 
 const months = new Map([
