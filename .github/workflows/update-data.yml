@@ -1,7 +1,7 @@
-name: 'Update KKN Period Data'
+name: "Update KKN Period Data"
 on:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 
 jobs:
@@ -15,14 +15,14 @@ jobs:
           node-version: 18
 
       - name: Scrape data
-          run: pnpm script:scrape
+        run: pnpm script:scrape
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           # The arguments for the `git add` command (see the paragraph below for more info)
           # Default: '.'
-          add: '*.json'
+          add: "*.json"
 
           # Determines the way the action fills missing author name and email. Three options are available:
           # - github_actor -> UserName <UserName@users.noreply.github.com>
@@ -33,4 +33,4 @@ jobs:
 
           # The message for the commit.
           # Default: 'Commit from GitHub Actions (name of the workflow)'
-          message: 'chore(automation): update KKN Period data'
+          message: "chore(automation): update KKN Period data"
